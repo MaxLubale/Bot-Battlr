@@ -12,6 +12,8 @@ const BotSpecs = ({ bot, goBackToListView, addBotToArmy }) => {
         <p>Damage: {bot.damage}</p>
         <p>Armor: {bot.armor}</p>
         <p>Catchphrase: {bot.catchphrase}</p>
+        <p>Created at: {bot.created_at}</p>
+        <p>Updated at:  {bot.updated_at}</p>
         <button onClick={() => addBotToArmy(bot)}>Enlist Bot</button>
         <button onClick={goBackToListView}>Go Back</button>
       </div>
