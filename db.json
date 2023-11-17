@@ -1165,6 +1165,18 @@
       "avatar_url": "https://robohash.org/maximedelenitiveritatis.png?size=300x300&set=set1",
       "created_at": "2018-10-02T19:55:11.862Z",
       "updated_at": "2018-10-02T19:55:11.862Z"
+    },
+    {
+      "id": 178,
+      "name": "Cc-34",
+      "health": 49,
+      "damage": 27,
+      "armor": 98,
+      "bot_class": "Defender",
+      "catchphrase": "0111000100001110011100101001001001",
+      "avatar_url": "https://robohash.org/quoassumendadolorem.png?size=300x300&set=set1",
+      "created_at": "2018-10-02T19:55:12.190Z",
+      "updated_at": "2018-10-02T19:55:12.190Z"
     }
   ]
 }

@@ -1,0 +1,72 @@
+body {
+    background-color: #1c1c1c;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  h1 {
+    color: #ff4500;
+  }
+  
+  .bot-collection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  
+  .bot-card {
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .bot-card img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  
+  .bot-card h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .bot-card p {
+    margin: 8px 0;
+    font-size: 14px;
+  }
+  
+  .button {
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #d13800;
+  }
+  
+  .red-button {
+    background-color: #ff0000;
+  }
+  
+  /* Added styles for enlisted bot army */
+  .enlisted-bot {
+    color: #00f; /* Blue color for enlisted bot army text */
+    text-align: center;
+    padding: 16px;
+    margin: 16px;
+    border: 1px solid #00f; /* Blue color for enlisted bot army border */
+    border-radius: 8px;
+    display: inline-block;
+  }
+  h2{
+    color:blue;
+  }
