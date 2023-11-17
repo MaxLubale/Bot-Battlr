@@ -26,7 +26,8 @@ const App = () => {
 
   const addBotToArmy = (bot) => {
     if (!yourBotArmy.some((b) => b.id === bot.id)) {
-      // Placeholder for enlisting the bot on the server
+      setYourBotArmy((enlisted) => [...enlisted, bot]);
+
       fetch('http://localhost:3001/enlisted', {
         method: 'POST',
         headers: {
@@ -34,8 +35,11 @@ const App = () => {
         },
         body: JSON.stringify(bot),
       })
-        .then((response) => response.json())
-        .then((enlistedBot) => setYourBotArmy((prevArmy) => [...prevArmy, enlistedBot]))
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Failed to enlist bot: ${response.statusText}`);
+          }
+        })
         .catch((error) => console.error('Error enlisting bot:', error));
     }
   };
@@ -53,19 +57,29 @@ const App = () => {
       })
       .catch((error) => console.error(error.message));
   };
-  
-  
 
   const dischargeBot = (botId) => {
-    // Placeholder for discharging the bot from the server
-    fetch(`http://localhost:3001/enlisted/${botId}`, {
+    fetch(`http://localhost:3001/bots/${botId}`, {
       method: 'DELETE',
     })
       .then(() => {
-        setBots((prevBots) => prevBots.filter((bot) => bot.id !== botId));
+        setBots((bots) => bots.filter((bot) => bot.id !== botId));
         setYourBotArmy((bots) => bots.filter((bot) => bot.id !== botId));
       })
       .catch((error) => console.error('Error discharging bot:', error));
+  };
+
+  const deleteBot = (botId) => {
+    fetch(`http://localhost:3001/bots/${botId}`, {
+      method: 'DELETE',
+    })
+      .then(() => {
+        fetch(`http://localhost:3001/bots?_sort=${sortBy}`)
+          .then((response) => response.json())
+          .then((data) => setBots(data))
+          .catch((error) => console.error('Error fetching bots after deletion:', error));
+      })
+      .catch((error) => console.error('Error deleting bot:', error));
   };
 
   const selectBot = (bot) => {
@@ -92,12 +106,14 @@ const App = () => {
         />
       ) : (
         <>
-         <YourBotArmy
-            army={yourBotArmy}
-            removeBotFromArmy={removeBotFromArmy}
+          <YourBotArmy army={yourBotArmy} removeBotFromArmy={removeBotFromArmy} />
+          <BotCollection
+            bots={bots}
+            selectBot={selectBot}
+            addBotToArmy={addBotToArmy}
             dischargeBot={dischargeBot}
+            deleteBot={deleteBot}
           />
-          <BotCollection bots={bots} selectBot={selectBot} addBotToArmy={addBotToArmy} />
         </>
       )}
     </div>
@@ -105,4 +121,3 @@ const App = () => {
 };
 
 export default App;
-

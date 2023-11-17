@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const YourBotArmy = ({ removeBotFromArmy, dischargeBot }) => {
+const YourBotArmy = ({ removeBotFromArmy}) => {
   const [enlistedBots, setEnlistedBots] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const YourBotArmy = ({ removeBotFromArmy, dischargeBot }) => {
             <p>Damage: {bot.damage}</p>
             <p>Armor: {bot.armor}</p>
             <button onClick={() => removeBotFromArmy(bot.id)}>Remove from Army</button>
-            <button onClick={() => dischargeBot(bot.id)}>Discharge</button>
+           
           </div>
         ))}
       </div>
