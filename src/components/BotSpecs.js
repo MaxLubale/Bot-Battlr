@@ -2,9 +2,9 @@ import React from 'react';
 
 const BotSpecs = ({ bot, goBackToListView, addBotToArmy }) => {
   return (
-    <div>
+    <div className="bot-specs" >
       <h2>Bot Specifications</h2>
-      <div className="bot-specs">
+      <div>
         <img src={bot.avatar_url} alt={bot.name} />
         <h3>{bot.name}</h3>
         <p>Class: {bot.bot_class}</p>
