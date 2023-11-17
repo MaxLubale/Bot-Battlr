@@ -12,11 +12,10 @@ const YourBotArmy = ({ removeBotFromArmy}) => {
 
   return (
     <div>
-      <h2>Your Enlisted Bot Army</h2>
+      <h2>Your Bot Army</h2>
       <div className="enlisted-bot">
         {enlistedBots.map((bot) => (
           <div key={bot.id} className="enlisted-bot">
-            {/* Render enlisted bot details */}
             <img src={bot.avatar_url} alt={bot.name} />
             <h3>{bot.name}</h3>
             <p>Class: {bot.bot_class}</p>

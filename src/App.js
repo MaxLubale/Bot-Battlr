@@ -97,7 +97,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Bot Battlr</h1>
+      <h1 id='title'>Bot Battlr</h1>
       <SortBar onSortChange={handleSortChange} />
       {selectedBot ? (
         <BotSpecs
