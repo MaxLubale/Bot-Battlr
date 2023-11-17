@@ -8,7 +8,7 @@ const BotCard = ({ bot, onClick }) => {
       <img src={avatar_url} alt={name} />
       <h3>{name}</h3>
       <p>Class: {bot_class}</p>
-      <p>Catchphrase: {catchphrase}</p>
+      
     </div>
   );
 };

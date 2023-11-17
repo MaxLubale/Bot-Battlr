@@ -1,7 +1,7 @@
 import React from 'react';
 import BotCard from './BotCard';
 
-const BotCollection = ({ bots, selectBot, addBotToArmy, dischargeBot, deleteBot }) => {
+const BotCollection = ({ bots, selectBot,dischargeBot }) => {
   return (
     <div className='bot-collection'>
         <h1>ALL BOTS</h1>
