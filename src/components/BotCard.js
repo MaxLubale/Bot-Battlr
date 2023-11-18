@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BotCard = ({ bot, onClick }) => {
-  const { name, bot_class, avatar_url, catchphrase } = bot;
+  const { name, bot_class, avatar_url} = bot;
 
   return (
     <div className="bot-card" onClick={() => onClick(bot)}>

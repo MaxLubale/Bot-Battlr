@@ -9,7 +9,7 @@ const BotCollection = ({ bots, selectBot,dischargeBot }) => {
         <div key={bot.id}>
           <h3>{bot.name}</h3>
           <BotCard key={bot.id} bot={bot} onClick={selectBot} />
-          <button className="button red-button" onClick={() => dischargeBot(bot.id)}>Discharge</button>
+          <button className="button red-button" onClick={() => dischargeBot(bot.id)}>X</button>
           
         </div>
       ))}

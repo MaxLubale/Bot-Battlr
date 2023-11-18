@@ -49,14 +49,12 @@ const App = () => {
     fetch(`http://localhost:3001/enlisted/${botId}`, {
       method: 'DELETE',
     })
-      .then((response) => {
-        if (response.ok) {
-          setYourBotArmy((enlisted) => enlisted.filter((bot) => bot.id !== botId));
-        } else {
-          throw new Error(`Failed to remove bot with ID ${botId} from army: ${response.statusText}`);
-        }
-      })
-      .catch((error) => console.error(error.message));
+    .then(() => {
+      setBots((bots) => bots.filter((bot) => bot.id !== botId));
+      setYourBotArmy((bots) => bots.filter((bot) => bot.id !== botId));
+      window.location.reload();
+    })
+    .catch((error) => console.error('Error Deleting bot:', error));
   };
 
   const dischargeBot = (botId) => {
@@ -70,18 +68,7 @@ const App = () => {
       .catch((error) => console.error('Error discharging bot:', error));
   };
 
-  const deleteBot = (botId) => {
-    fetch(`http://localhost:3001/bots/${botId}`, {
-      method: 'DELETE',
-    })
-      .then(() => {
-        fetch(`http://localhost:3001/bots?_sort=${sortBy}`)
-          .then((response) => response.json())
-          .then((data) => setBots(data))
-          .catch((error) => console.error('Error fetching bots after deletion:', error));
-      })
-      .catch((error) => console.error('Error deleting bot:', error));
-  };
+  
 
   const selectBot = (bot) => {
     setSelectedBot(bot);
@@ -113,7 +100,6 @@ const App = () => {
             selectBot={selectBot}
             addBotToArmy={addBotToArmy}
             dischargeBot={dischargeBot}
-            deleteBot={deleteBot}
           />
         </>
       )}

@@ -1,0 +1,8 @@
+.then((response) => {
+    if (response.ok) {
+      setYourBotArmy((enlisted) => enlisted.filter((bot) => bot.id !== botId));
+    } else {
+      throw new Error(`Failed to remove bot with ID ${botId} from army: ${response.statusText}`);
+    }
+  })
+  .catch((error) => console.error(error.message));
