@@ -4,7 +4,7 @@ const YourBotArmy = ({ removeBotFromArmy}) => {
   const [enlistedBots, setEnlistedBots] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/enlisted')
+    fetch('https://bot-api-ga2w.onrender.com/enlisted')
       .then((response) => response.json())
       .then((data) => setEnlistedBots(data))
       .catch((error) => console.error('Error fetching enlisted bots:', error));

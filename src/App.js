@@ -12,14 +12,14 @@ const App = () => {
   const [sortBy, setSortBy] = useState('name'); // Default sorting by name
 
   useEffect(() => {
-    fetch(`http://localhost:3001/bots?_sort=${sortBy}`)
+    fetch(`https://bot-api-ga2w.onrender.com/bots?_sort=${sortBy}`)
       .then((response) => response.json())
       .then((data) => setBots(data))
       .catch((error) => console.error('Error fetching bots:', error));
   }, [sortBy]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/enlisted')
+    fetch('https://bot-api-ga2w.onrender.com/enlisted')
       .then((response) => response.json())
       .then((data) => setYourBotArmy(data))
       .catch((error) => console.error('Error fetching enlisted bots:', error));
@@ -29,7 +29,7 @@ const App = () => {
     if (!yourBotArmy.some((b) => b.id === bot.id)) {
       setYourBotArmy((enlisted) => [...enlisted, bot]);
 
-      fetch('http://localhost:3001/enlisted', {
+      fetch('https://bot-api-ga2w.onrender.com/enlisted', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const App = () => {
   };
 
   const removeBotFromArmy = (botId) => {
-    fetch(`http://localhost:3001/enlisted/${botId}`, {
+    fetch(`https://bot-api-ga2w.onrender.com/enlisted/${botId}`, {
       method: 'DELETE',
     })
     .then(() => {
@@ -58,7 +58,7 @@ const App = () => {
   };
 
   const dischargeBot = (botId) => {
-    fetch(`http://localhost:3001/bots/${botId}`, {
+    fetch(`https://bot-api-ga2w.onrender.com/bots/${botId}`, {
       method: 'DELETE',
     })
       .then(() => {
